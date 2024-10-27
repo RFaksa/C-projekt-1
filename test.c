@@ -4,18 +4,19 @@
 
 
 /*
-
+DOTPROD:
 Vektory v souboru musí být zadané ve stylu:
 
 1 2.0 0.005 -0.5
 5.0 3.0 -5.02 00.2
 
 */
+
+char filePath[256];
+
 void sqrt_function();
 void mandelbrot_function();
 void dotprod_function(char filePath[256]);
-
-char filePath[256];
 
 int main() {
     char funkce[256];
@@ -25,7 +26,7 @@ int main() {
     funkce[strcspn(funkce, "\n")] = 0;
 
     if (strcmp(funkce, "sqrt") == 0) {
-        sqrt_function("test");
+        sqrt_function();
     } else if (strcmp(funkce, "mandelbrot") == 0) {
         mandelbrot_function();
     } else if (strcmp(funkce, "dotprod") == 0) {
