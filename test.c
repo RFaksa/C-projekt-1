@@ -52,7 +52,7 @@ void mandelbrot_function() {
 
 
 void dotprod_function(char filePath[256]) {
-    char line1[512], line2[512], token;
+    char line1[512], line2[512], *vector;
     double vector1[256], vector2[256], soucin; //maximalni pocet prvků ve vektoru je 256 (v pripade zvetsit)
     int Vectory1, Vectory2, i;
 
@@ -78,22 +78,22 @@ void dotprod_function(char filePath[256]) {
 
     fclose(file);
 
-    token = strtok(line1, " "); 
+    vector = strtok(line1, " "); 
     i = 0;
 
-    while (token != NULL) {
-        vector1[i] = atof(token);
-        token = strtok(NULL, " ");
+    while (vector != NULL) {
+        vector1[i] = atof(vector);
+        vector = strtok(NULL, " ");
         i++;
     }
 
     Vectory1 = i;
 
     i = 0;
-    token = strtok(line2, " "); 
-    while (token != NULL) {
-        vector2[i] = atof(token);
-        token = strtok(NULL, " ");
+    vector = strtok(line2, " "); 
+    while (vector != NULL) {
+        vector2[i] = atof(vector);
+        vector = strtok(NULL, " ");
         i++;
     }
 
@@ -111,5 +111,5 @@ void dotprod_function(char filePath[256]) {
         i++;
     }
 
-    printf("\n============================\nSoucin vektoru je:\n %%.%fe\n============================\n", soucin);
+    printf("\n============================\nSoucin vektoru je:\n %.17e\n============================\n", soucin);
 }
